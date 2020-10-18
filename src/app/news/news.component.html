@@ -1,0 +1,47 @@
+<h2>News</h2>
+<ul class="news">
+    <li *ngFor="let article of news" (click)="onSelect(article)" [class.selected]="article === selectedArticle">
+        <span class="badge">{{article.id}}</span> {{article.webTitle}}
+    </li>
+</ul>
+
+
+<div *ngIf="selectedArticle">
+    <h2>{{selectedArticle.webTitle}} Details</h2>
+    <div><span>id: </span>{{selectedArticle.id}}</div>
+
+    <div>
+        <label>web title:
+            <input class="edit-input" [(ngModel)]="selectedArticle.webTitle"/>
+        </label>
+        <label>type:
+            <input class="edit-input" [(ngModel)]="selectedArticle.type"/>
+        </label>
+        <label>section id:
+            <input class="edit-input" [(ngModel)]="selectedArticle.sectionId"/>
+        </label>
+        <label>section name:
+            <input class="edit-input" [(ngModel)]="selectedArticle.sectionName"/>
+        </label>
+        <label>web publication date:
+            <input class="edit-input" [(ngModel)]="selectedArticle.webPublicationDate"/>
+        </label>
+        <label>web url:
+            <input class="edit-input" [(ngModel)]="selectedArticle.webUrl"/>
+        </label>
+        <label>api url:
+            <input class="edit-input" [(ngModel)]="selectedArticle.apiUrl"/>
+        </label>
+        <label>is hosted:
+            <input class="edit-input" [(ngModel)]="selectedArticle.isHosted"/>
+        </label>
+        <label>pillar id:
+            <input class="edit-input" [(ngModel)]="selectedArticle.pillarId"/>
+        </label>
+        <label>pillar name:
+            <input class="edit-input" [(ngModel)]="selectedArticle.pillarName"/>
+        </label>
+    </div>
+    <button (click)="onSave()">save</button>
+    <button (click)="onCancel()">cancel</button>
+</div>
